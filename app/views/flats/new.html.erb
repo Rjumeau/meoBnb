@@ -1,0 +1,10 @@
+<div class="container mx-auto mt-5 w-50 p-5 bg-white rounded-4">
+  <h2>Add your human flat 😼</h2>
+  <%= simple_form_for @flat do |f|%>
+    <%= f.input :name %>
+    <%= f.input :description %>
+    <%= f.input :address %>
+    <%= f.input :price, input_html: { append: '€' } %>
+    <%= f.button :submit, class: 'submit-button text-center' %>
+  <% end %>
+</div>
