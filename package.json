@@ -2,5 +2,9 @@
   "dependencies": {
     "@popperjs/core": "^2.11.7",
     "bootstrap": "^5.2.3"
+  },
+  "scripts": {
+    "build": "esbuild app/javascript/*.* --bundle --sourcemap --outdir=app/assets/builds",
+    "build:css": "tailwindcss -i ./app/assets/stylesheets/application.tailwind.css -o ./app/assets/builds/application.css"
   }
 }
