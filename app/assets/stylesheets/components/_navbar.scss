@@ -7,6 +7,19 @@
   flex-grow: 0;
 }
 
-.navbar-lewagon .navbar-brand img {
+.navbar-brand {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#logo {
   width: 40px;
+}
+
+#logo-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: $airbnb-color;
+  margin-top: 5px;
 }
