@@ -66,6 +66,7 @@ group :development do
   gem "web-console"
   gem "rails_live_reload"
   gem "spring"
+  gem "awesome_print"
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
@@ -80,3 +81,5 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+gem "byebug", "~> 11.1", :groups => [:development, :test]

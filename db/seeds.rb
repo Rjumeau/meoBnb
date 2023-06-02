@@ -5,34 +5,41 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+require 'uri'
 
 User.destroy_all
 Flat.destroy_all
 
 puts "Create users..."
 
-User.create(email: "cat1@meow.com", password: "secrette", first_name: "Simba")
-User.create(email: "cat2@meow.com", password: "secrette", first_name: "Nala")
+user1 = User.create!(email: "cat1@meow.com", password: "secrette", first_name: "Simba")
+user2 = User.create!(email: "cat2@meow.com", password: "secrette", first_name: "Nala")
 
 puts "Done !"
 
 puts "Create flats..."
-Flat.create(
-  owner_id: 1,
-  name: "Maison avec jardin d'herbes à chats",
-  description: "Proches de toutes commodités, Maison de mon humain
-                possède un jardin rempli d'herbe à chat de qualitey",
-  price: 130
-)
 
 10.times do
-  Flat.create(
-    owner_id: 2,
+  garden_img_file = URI.open("https://unsplash.com/fr/photos/_kPV3GAiqMs")
+  Flat.create!(
+    owner_id: user1.id,
+    name: "Maison avec jardin d'herbes à chats",
+    description: "Proches de toutes commodités, Maison de mon humain
+                  possède un jardin rempli d'herbe à chat de qualitey",
+    price: 130
+  ).photos.attach(io: garden_img_file, filename: 'garden-img-file.jpg')
+end
+
+
+10.times do
+  cat_tree_file = URI.open('https://unsplash.com/fr/photos/4-j7KGLHn4o')
+  Flat.create!(
+    owner_id: user2.id,
     name: "Appartement avec griffoir géant",
     description: "Proches de toutes commodités, l'appartement de mon humain
                   possède un griffoir géant pour le plaisir de vos griffes",
     price: 55
-  )
+  ).photos.attach(io: cat_tree_file, filename: 'cat-tree.jpg')
 end
 
 puts "Done !"
