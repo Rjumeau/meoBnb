@@ -23,22 +23,25 @@ puts "Create flats..."
   garden_img_file = URI.open("https://unsplash.com/fr/photos/_kPV3GAiqMs")
   Flat.create!(
     owner_id: user1.id,
-    name: "Maison avec jardin d'herbes à chats",
     description: "Proches de toutes commodités, Maison de mon humain
                   possède un jardin rempli d'herbe à chat de qualitey",
-    price: 130
+    price: 130,
+    address: "107 cours Balguerie Stuttenberg, Bordeaux",
+    city: "Bordeaux",
+    country: "France"
   ).photos.attach(io: garden_img_file, filename: 'garden-img-file.jpg')
 end
-
 
 10.times do
   cat_tree_file = URI.open('https://unsplash.com/fr/photos/4-j7KGLHn4o')
   Flat.create!(
     owner_id: user2.id,
-    name: "Appartement avec griffoir géant",
     description: "Proches de toutes commodités, l'appartement de mon humain
                   possède un griffoir géant pour le plaisir de vos griffes",
-    price: 55
+    price: 55,
+    address: "16 Villa Gaudelet, Paris",
+    city: "Paris",
+    country: "France"
   ).photos.attach(io: cat_tree_file, filename: 'cat-tree.jpg')
 end
 
