@@ -20,7 +20,7 @@ puts "Done !"
 puts "Create flats..."
 
 10.times do
-  garden_img_file = URI.open("https://unsplash.com/fr/photos/_kPV3GAiqMs")
+  garden_img_file = URI.open("app/assets/images/cat-garden.jpeg")
   Flat.create!(
     owner_id: user1.id,
     description: "Proches de toutes commodités, Maison de mon humain
@@ -33,7 +33,7 @@ puts "Create flats..."
 end
 
 10.times do
-  cat_tree_file = URI.open('https://unsplash.com/fr/photos/4-j7KGLHn4o')
+  cat_tree_file = URI.open("app/assets/images/cat-tree.jpeg")
   Flat.create!(
     owner_id: user2.id,
     description: "Proches de toutes commodités, l'appartement de mon humain

@@ -1,7 +1,15 @@
-<div class="container">
+<div class="container mt-5">
   <div class="row">
-    <%= @flats.each do |flat| %>
-      <%= flat.description %>
+    <% @flats.each do |flat| %>
+      <div class="col-12 col-md-4">
+        <div class="flat-home-card">
+          <%= cl_image_tag flat.photos.first.key, width: 300, height: 300, crop: :fill, class:'rounded-4' %>
+          <div class="flat-home-card-body mt-2">
+            <p><strong><%= "#{flat.city}, #{flat.country}" %></p></strong>
+            <p><%= "#{flat.price} 🍥" %></p>
+          </div>
+        </div>
+      </div>
     <% end %>
   </div>
 </div>
